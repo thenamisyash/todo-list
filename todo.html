@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #8E9BE5;
+        }
+        .container{
+                /* display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px; */
+                text-align: center;
+                border: 1px solid gainsboro;
+                background-color: white;
+                width: 350px;
+                margin: auto;
+                min-height:500px;
+                border-radius: 12px;
+                font-size: 18px;
+            margin-top: 15px;
+        }
+        input{
+            padding: 8px;
+            margin: 12px 10px 12px auto;
+            vertical-align: middle;
+             /* margin-top: 10px; */
+             border-top:none;
+             border-left: none;
+             border-right: none;
+             text-align: center;
+             border-color:#51E6C8;
+            font-size: 18px;
+        }
+        button{
+            border: none;
+            color: black;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            background: color #51e6c8;;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        button:hover{
+            background-color:#51E6C8;
+        }
+        h1{
+            text-align: center;
+            font-family:'Times New Roman', Times, serif;
+            background-color:#51E6C8 ;
+            /* border-radius: 12px; */
+            margin-top: 9px;
+        }
+        .to-dos{
+            margin-top: 25px;
+        }
+        .paragraph-stylling{
+            margin: 0;
+            cursor: pointer;
+            font-size: 20px;
+            text-align: start;
+            margin-left: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo list</h1>
+        <input type="text" placeholder="Add a Items" id="first" class="next" >
+        <button id="addToDo">+</button>
+        <div class="to-dos" id="toDoContainer">
+
+        </div>
+    </div>
+</body>
+    <script>
+        let addTodoButton = document.getElementById('addToDo');
+        let toDoContainer = document.getElementById('toDoContainer');
+        let inputField = document.getElementById('first');
+
+        addTodoButton.addEventListener('click',function(){
+            var paragraph = document.createElement('p')
+           var line = document.createElement("hr");
+            paragraph.classList.add('paragraph-stylling');  
+             paragraph.innerText = inputField.value;
+             toDoContainer.appendChild(paragraph);
+             toDoContainer.appendChild(line);
+             inputField.value = "";
+             paragraph.addEventListener('click',function(){
+                paragraph.style.textDecoration = "line-through";
+             })
+             paragraph.addEventListener('click',function(){
+                
+             })
+             paragraph.addEventListener('dblclick', function (){
+                toDoContainer.removeChild(paragraph);
+                toDoContainer.removeChild(line);
+
+             })
+        })
+
+        let store = [];
+        document.querySelector('.addToDo').addEventListener('click', () => {
+            let val = document.querySelector('.next').value;
+
+            store.push(val);
+            localStorage.setItem('')
+        })
+
+
+    </script>
+</html>
